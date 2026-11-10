@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Music practice tool{% endblock %}</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 720px; margin: 3rem auto; padding: 0 1.25rem; line-height: 1.5; }
+    h1 { font-size: 1.6rem; margin-bottom: 0.25rem; }
+    p.lead { color: #666; margin-top: 0; }
+    .card { border: 1px solid #ccc; border-radius: 10px; padding: 1.25rem; margin: 1.25rem 0; }
+    label { display: block; font-weight: 600; margin-bottom: 0.35rem; }
+    input[type=file] { margin-bottom: 1rem; }
+    button { font-size: 1rem; padding: 0.6rem 1.2rem; border-radius: 8px; border: 1px solid #888; cursor: pointer; }
+    button:disabled { opacity: 0.6; cursor: wait; }
+    .stats { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 0.5rem 0 1rem; }
+    .stats div span { display: block; font-size: 0.8rem; color: #666; }
+    .stats div b { font-size: 1.2rem; }
+    table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+    th, td { text-align: left; padding: 0.2rem 0.6rem; border-bottom: 1px solid #ddd; }
+    details summary { cursor: pointer; margin: 0.5rem 0; }
+    a.button { display: inline-block; text-decoration: none; padding: 0.5rem 1rem; border: 1px solid #888; border-radius: 8px; }
+    #status { margin-top: 1rem; color: #666; }
+    @media (prefers-color-scheme: dark) { .card { border-color: #444; } th, td { border-color: #333; } p.lead, .stats div span, #status { color: #aaa; } }
+  </style>
+</head>
+<body>
+{% block body %}{% endblock %}
+</body>
+</html>

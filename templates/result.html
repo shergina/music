@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Results · Music practice tool{% endblock %}
+{% block body %}
+<h1>Results</h1>
+<p class="lead">Job {{ job }}. <a href="/">Transcribe another pair</a></p>
+
+{% for r in results %}
+<div class="card">
+  <h2>{{ r.label }}</h2>
+  <p class="lead">{{ r.filename }}</p>
+  <div class="stats">
+    <div><span>notes found</span><b>{{ r.result.notes | length }}</b></div>
+    <div><span>audio length</span><b>{{ "%.0f" | format(r.result.audio_length) }} s</b></div>
+    <div><span>transcribed in</span><b>{{ "%.1f" | format(r.result.seconds_taken) }} s</b></div>
+  </div>
+  <a class="button" href="{{ r.midi_url }}">Download MIDI</a>
+  <details>
+    <summary>Show all notes</summary>
+    <table>
+      <thead><tr><th>start (s)</th><th>length (s)</th><th>note</th><th>MIDI</th><th>loudness</th></tr></thead>
+      <tbody>
+      {% for n in r.result.notes %}
+        <tr><td>{{ "%.2f" | format(n.start) }}</td><td>{{ "%.2f" | format(n.length) }}</td><td>{{ n.name }}</td><td>{{ n.pitch }}</td><td>{{ "%.2f" | format(n.loudness) }}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </details>
+</div>
+{% endfor %}
+{% endblock %}

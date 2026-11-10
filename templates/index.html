@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block body %}
+<h1>Audio to MIDI</h1>
+<p class="lead">Upload a recording of yourself and a recording of the ideal pianist. You get the notes and a MIDI file for each.</p>
+
+<form class="card" action="/transcribe" method="post" enctype="multipart/form-data" onsubmit="return starting()">
+  {% for field, label in recordings %}
+    <label for="{{ field }}">{{ label }}</label>
+    <input id="{{ field }}" name="{{ field }}" type="file" accept="audio/*,.m4a,.wav,.mp3,.aiff,.aif" required>
+  {% endfor %}
+  <button id="go" type="submit">Transcribe</button>
+  <div id="status"></div>
+</form>
+
+<p class="lead">WAV, M4A (Voice Memos, QuickTime), MP3 and AIFF all work. Transcription takes a few seconds per minute of audio.</p>
+
+<script>
+  function starting() {
+    document.getElementById("go").disabled = true;
+    document.getElementById("status").textContent = "Transcribing… this takes a few seconds per minute of audio.";
+    return true;
+  }
+</script>
+{% endblock %}
