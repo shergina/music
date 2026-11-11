@@ -37,7 +37,8 @@ def main() -> None:
         print(f"{n.start:7.2f}  {n.length:7.2f}  {n.name:<5} {n.pitch:4d}  {n.loudness:5.2f}")
 
     print()
-    print(f"{len(result.notes)} notes found")
+    print(f"{len(result.notes)} notes found in {result.audio_length:.1f} s of audio")
+    print(f"silence removed: {result.silence_start:.2f} s at the start, {result.silence_end:.2f} s at the end")
     print(f"model load {load_time:.1f} s, transcription {result.seconds_taken:.1f} s")
     print(f"MIDI written to {result.midi_path}")
 

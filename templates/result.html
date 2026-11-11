@@ -12,6 +12,7 @@
     <div><span>notes found</span><b>{{ r.result.notes | length }}</b></div>
     <div><span>audio length</span><b>{{ "%.0f" | format(r.result.audio_length) }} s</b></div>
     <div><span>transcribed in</span><b>{{ "%.1f" | format(r.result.seconds_taken) }} s</b></div>
+    <div><span>silence removed</span><b>{{ "%.1f" | format(r.result.silence_start) }} s start, {{ "%.1f" | format(r.result.silence_end) }} s end</b></div>
   </div>
   <a class="button" href="{{ r.midi_url }}">Download MIDI</a>
   <details>
